@@ -6,20 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
-
 @Controller
 public class LoginController {
-
+    // this is the login page
     @RequestMapping("/login")
     public String login(@RequestParam(required = false) String name,
             @RequestParam(required = false) String password,
             ModelMap model) {
-        
 
         return "login";
     }
-
+    // this is the login page if s
     @RequestMapping("/login-success")
     public ModelAndView loginSuccess(@RequestParam String name,
             @RequestParam String password) {
