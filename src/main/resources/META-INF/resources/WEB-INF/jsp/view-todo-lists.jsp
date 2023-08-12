@@ -11,8 +11,8 @@
     <table>
       <thead>
         <tr>
-          <th>Task</th>
-          <th>Description</th>
+          <th>name</th>
+          <th>isCompleted</th>
         </tr>
       </thead>
       <tbody>

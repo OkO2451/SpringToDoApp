@@ -8,7 +8,7 @@
     <h1>Login Page</h1>
     <pre>${message}</pre>
 
-    <form method="post" action="login-success" method="get">
+    <form method="post" action="login-success" >
       <label for="name">Username:</label>
       <input type="text" id="name" name="name" /><br /><br />
       <label for="password">Password:</label>

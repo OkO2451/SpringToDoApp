@@ -1,15 +1,28 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Todo List</title>
-</head>
-<body>
-    <h1>Todo List</h1>
-    <ul>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo Lists</title>
+  </head>
+  <body>
+    <h1>Todo Lists</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
         <c:forEach items="${todoItems}" var="todoItem">
-            <li>${todoItem.description}</li>
+          <tr>
+            <td>${todoItem.task}</td>
+            <td>${todoItem.description}</td>
+          </tr>
         </c:forEach>
-    </ul>
-</body>
+      </tbody>
+    </table>
+  </body>
 </html>

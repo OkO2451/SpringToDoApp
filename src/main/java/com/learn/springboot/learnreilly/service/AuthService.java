@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     public boolean authenticate(String username, String password) {
-        if (username.equals("admin") && password.equals("admin")) {
+        if (username.equals("admin") && password.equals("admin") ||
+                username.equals("user") && password.equals("123")) {
             return true;
         }
         return false;
@@ -16,5 +17,5 @@ public class AuthService {
     public AuthService() {
         super();
     }
-    
+
 }
