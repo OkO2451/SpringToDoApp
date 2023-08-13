@@ -4,15 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.learn.springboot.learnreilly.service.TodoService;
 
-import ch.qos.logback.core.model.Model;
-
 import com.learn.springboot.learnreilly.entity.TodoItem;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.List;
 
 @Controller
@@ -43,7 +40,21 @@ public class TodoController {
         return "/todo-lists";
     }
 
-    
+    @PostMapping("/toggle-todo-item")
+    public String toggleTodoItem(@RequestParam("id") Long id) {
+        TodoItem todoItem = todoService.getTodoItemById(id);
+        todoItem.setIsCompleted(!todoItem.getIsCompleted());
+        todoService.saveTodoItem(todoItem);
+        return "redirect:/view-todo-lists";
+    }
 
+    @PostMapping("/add-todo-item")
+    public String addTodoItem(@RequestParam("name") String name) {
+        if(!todoService.validateName(name)) {
+            return "redirect:/view-todo-lists";
+        }
+        todoService.saveTodoItem(name);
+        return "redirect:/view-todo-lists";
+    }
 
 }

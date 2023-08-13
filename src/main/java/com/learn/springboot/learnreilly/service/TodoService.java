@@ -34,5 +34,30 @@ public class TodoService {
         return itemList;
     }
     
+    public void saveTodoItem(TodoItem todoItem) {
+        for (int i = 0; i < itemList.size(); i++) {
+            if (itemList.get(i).getId() == todoItem.getId()) {
+                itemList.set(i, todoItem);
+                return;
+            }
+        }
+        itemList.add(todoItem);
+    }
+    public boolean validateName(String name) {
+        return name != null && !name.trim().isEmpty();
+    }
+
+    public void saveTodoItem(String name) {
+        TodoItem todoItem = new TodoItem(name);
+        for (int i = 0; i < itemList.size(); i++) {
+            if (itemList.get(i).getId() == todoItem.getId()) {
+                itemList.set(i, todoItem);
+                return;
+            }
+        }
+        itemList.add(todoItem);
+    }
+    
+    
     
 }
